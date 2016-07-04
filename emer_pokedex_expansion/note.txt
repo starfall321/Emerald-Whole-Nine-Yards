@@ -1,0 +1,26 @@
+/*Base stats data structure
+base hp		.byte
+base attack	.byte
+base defense	.byte
+base speed	.byte
+base sp. attack	.byte
+base sp. defense.byte
+type 1	.byte
+type 2	.byte
+catch rate	.byte
+base exp.yield	.byte
+effort yield	.word
+item 1	.word
+item 2	.word
+gender	.byte
+egg cycles	.byte
+base friendship	.byte
+level-up type	.byte
+egg group 1	.byte
+egg group 2	.byte
+ability1	.byte
+ability2	.byte
+safari zone rate.byte
+color and flip	.byte
+padding/dream world ability	.word
+*/

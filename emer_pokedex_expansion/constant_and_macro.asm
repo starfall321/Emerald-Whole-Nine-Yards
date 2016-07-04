@@ -1,0 +1,558 @@
+@@Gender
+.equ ALWAYS_MALE, 0
+.equ ALWAYS_FEMALE, 254
+.equ GENDERLESS, 255
+
+@@nature
+.equ NATURE_HARDY, 0
+.equ NATURE_LONELY, 1
+.equ NATURE_BRAVE, 2
+.equ NATURE_ADAMANT, 3
+.equ NATURE_NAUGHTY, 4
+.equ NATURE_BOLD, 5
+.equ NATURE_DOCILE, 6
+.equ NATURE_RELAXED, 7
+.equ NATURE_IMPISH, 8
+.equ NATURE_LAX, 9
+.equ NATURE_TIMID, 10
+.equ NATURE_HASTY, 11
+.equ NATURE_SERIOUS, 12
+.equ NATURE_JOLLY, 13
+.equ NATURE_NAIVE, 14
+.equ NATURE_MODEST, 15
+.equ NATURE_MILD, 16
+.equ NATURE_QUIET, 17
+.equ NATURE_BASHFUL, 18
+.equ NATURE_RASH, 19
+.equ NATURE_CALM, 20
+.equ NATURE_GENTLE, 21
+.equ NATURE_SASSY, 22
+.equ NATURE_CAREFUL, 23
+.equ NATURE_QUIRKY, 24
+
+@@level-up type
+.equ GROWTH_MEDIUM_FAST, 0x00
+.equ GROWTH_ERRATIC, 0x01
+.equ GROWTH_FLUCTUATING, 0x02
+.equ GROWTH_MEDIUM_SLOW, 0x03
+.equ GROWTH_FAST, 0x04
+.equ GROWTH_SLOW, 0x05
+
+
+@@egg group
+.equ EGG_GROUP_NONE, 0x00
+.equ EGG_GROUP_MONSTER, 0x01
+.equ EGG_GROUP_WATER_1, 0x02
+.equ EGG_GROUP_BUG, 0x03
+.equ EGG_GROUP_FLYING, 0x04
+.equ EGG_GROUP_FIELD, 0x05
+.equ EGG_GROUP_FAIRY, 0x06
+.equ EGG_GROUP_GRASS, 0x07
+.equ EGG_GROUP_HUMAN_LIKE, 0x08
+.equ EGG_GROUP_WATER_3, 0x09
+.equ EGG_GROUP_MINERAL, 0x0a
+.equ EGG_GROUP_AMORPHOUS, 0x0b
+.equ EGG_GROUP_WATER_2, 0x0c
+.equ EGG_GROUP_DITTO, 0x0d
+.equ EGG_GROUP_DRAGON, 0x0e
+.equ EGG_GROUP_UNDISCOVERED, 0x0f
+
+
+@@pokemon color
+.equ BODY_COLOR_RED, 0x00
+.equ BODY_COLOR_BLUE, 0x01
+.equ BODY_COLOR_YELLOW, 0x02
+.equ BODY_COLOR_GREEN, 0x03
+.equ BODY_COLOR_BLACK, 0x04
+.equ BODY_COLOR_BROWN, 0x05
+.equ BODY_COLOR_PURPLE, 0x06
+.equ BODY_COLOR_GRAY, 0x07
+.equ BODY_COLOR_WHITE, 0x08
+.equ BODY_COLOR_PINK, 0x09
+
+.equ F_SUMMARY_SCREEN_FLIP_SPRITE, 0x80
+
+@@evolution method
+.equ EVO_FRIENDSHIP, 0x0001 @ Pokémon levels up with friendship = 220
+.equ EVO_FRIENDSHIP_DAY, 0x0002 @ Pokémon levels up during the day with friendship = 220
+.equ EVO_FRIENDSHIP_NIGHT, 0x0003 @ Pokémon levels up at night with friendship = 220
+.equ EVO_LEVEL, 0x0004 @ Pokémon reaches the specified level
+.equ EVO_TRADE, 0x0005 @ Pokémon is traded
+.equ EVO_TRADE_ITEM, 0x0006 @ Pokémon is traded while it's holding the specified item
+.equ EVO_ITEM, 0x0007 @ specified item is used on Pokémon
+.equ EVO_LEVEL_ATK_GT_DEF, 0x0008 @ Pokémon reaches the specified level with attack > defense
+.equ EVO_LEVEL_ATK_EQ_DEF, 0x0009 @ Pokémon reaches the specified level with attack = defense
+.equ EVO_LEVEL_ATK_LT_DEF, 0x000a @ Pokémon reaches the specified level with attack < defense
+.equ EVO_LEVEL_SILCOON, 0x000b @ Pokémon reaches the specified level with a Silcoon personality value
+.equ EVO_LEVEL_CASCOON, 0x000c @ Pokémon reaches the specified level with a Cascoon personality value
+.equ EVO_LEVEL_NINJASK, 0x000d @ Pokémon reaches the specified level (special value for Ninjask)
+.equ EVO_LEVEL_SHEDINJA, 0x000e @ Pokémon reaches the specified level (special value for Shedinja)
+.equ EVO_BEAUTY, 0x000f @ Pokémon levels up with beauty = specified value
+
+@@ability
+.equ ABILITY_NONE, 0x00
+.equ ABILITY_STENCH, 0x01
+.equ ABILITY_DRIZZLE, 0x02
+.equ ABILITY_SPEED_BOOST, 0x03
+.equ ABILITY_BATTLE_ARMOR, 0x04
+.equ ABILITY_STURDY, 0x05
+.equ ABILITY_DAMP, 0x06
+.equ ABILITY_LIMBER, 0x07
+.equ ABILITY_SAND_VEIL, 0x08
+.equ ABILITY_STATIC, 0x09
+.equ ABILITY_VOLT_ABSORB, 0x0a
+.equ ABILITY_WATER_ABSORB, 0x0b
+.equ ABILITY_OBLIVIOUS, 0x0c
+.equ ABILITY_CLOUD_NINE, 0x0d
+.equ ABILITY_COMPOUND_EYES, 0x0e
+.equ ABILITY_INSOMNIA, 0x0f
+.equ ABILITY_COLOR_CHANGE, 0x10
+.equ ABILITY_IMMUNITY, 0x11
+.equ ABILITY_FLASH_FIRE, 0x12
+.equ ABILITY_SHIELD_DUST, 0x13
+.equ ABILITY_OWN_TEMPO, 0x14
+.equ ABILITY_SUCTION_CUPS, 0x15
+.equ ABILITY_INTIMIDATE, 0x16
+.equ ABILITY_SHADOW_TAG, 0x17
+.equ ABILITY_ROUGH_SKIN, 0x18
+.equ ABILITY_WONDER_GUARD, 0x19
+.equ ABILITY_LEVITATE, 0x1a
+.equ ABILITY_EFFECT_SPORE, 0x1b
+.equ ABILITY_SYNCHRONIZE, 0x1c
+.equ ABILITY_CLEAR_BODY, 0x1d
+.equ ABILITY_NATURAL_CURE, 0x1e
+.equ ABILITY_LIGHTNING_ROD, 0x1f
+.equ ABILITY_SERENE_GRACE, 0x20
+.equ ABILITY_SWIFT_SWIM, 0x21
+.equ ABILITY_CHLOROPHYLL, 0x22
+.equ ABILITY_ILLUMINATE, 0x23
+.equ ABILITY_TRACE, 0x24
+.equ ABILITY_HUGE_POWER, 0x25
+.equ ABILITY_POISON_POINT, 0x26
+.equ ABILITY_INNER_FOCUS, 0x27
+.equ ABILITY_MAGMA_ARMOR, 0x28
+.equ ABILITY_WATER_VEIL, 0x29
+.equ ABILITY_MAGNET_PULL, 0x2a
+.equ ABILITY_SOUNDPROOF, 0x2b
+.equ ABILITY_RAIN_DISH, 0x2c
+.equ ABILITY_SAND_STREAM, 0x2d
+.equ ABILITY_PRESSURE, 0x2e
+.equ ABILITY_THICK_FAT, 0x2f
+.equ ABILITY_EARLY_BIRD, 0x30
+.equ ABILITY_FLAME_BODY, 0x31
+.equ ABILITY_RUN_AWAY, 0x32
+.equ ABILITY_KEEN_EYE, 0x33
+.equ ABILITY_HYPER_CUTTER, 0x34
+.equ ABILITY_PICKUP, 0x35
+.equ ABILITY_TRUANT, 0x36
+.equ ABILITY_HUSTLE, 0x37
+.equ ABILITY_CUTE_CHARM, 0x38
+.equ ABILITY_PLUS, 0x39
+.equ ABILITY_MINUS, 0x3a
+.equ ABILITY_FORECAST, 0x3b
+.equ ABILITY_STICKY_HOLD, 0x3c
+.equ ABILITY_SHED_SKIN, 0x3d
+.equ ABILITY_GUTS, 0x3e
+.equ ABILITY_MARVEL_SCALE, 0x3f
+.equ ABILITY_LIQUID_OOZE, 0x40
+.equ ABILITY_OVERGROW, 0x41
+.equ ABILITY_BLAZE, 0x42
+.equ ABILITY_TORRENT, 0x43
+.equ ABILITY_SWARM, 0x44
+.equ ABILITY_ROCK_HEAD, 0x45
+.equ ABILITY_DROUGHT, 0x46
+.equ ABILITY_ARENA_TRAP, 0x47
+.equ ABILITY_VITAL_SPIRIT, 0x48
+.equ ABILITY_WHITE_SMOKE, 0x49
+.equ ABILITY_PURE_POWER, 0x4a
+.equ ABILITY_SHELL_ARMOR, 0x4b
+.equ ABILITY_CACOPHONY, 0x4c
+.equ ABILITY_AIR_LOCK, 0x4d
+
+@@type
+.equ TYPE_NORMAL, 0x00
+.equ TYPE_FIGHTING, 0x01
+.equ TYPE_FLYING, 0x02
+.equ TYPE_POISON, 0x03
+.equ TYPE_GROUND, 0x04
+.equ TYPE_ROCK, 0x05
+.equ TYPE_BUG, 0x06
+.equ TYPE_GHOST, 0x07
+.equ TYPE_STEEL, 0x08
+.equ TYPE_UNKNOWN, 0x09
+.equ TYPE_FIRE, 0x0a
+.equ TYPE_WATER, 0x0b
+.equ TYPE_GRASS, 0x0c
+.equ TYPE_ELECTRIC, 0x0d
+.equ TYPE_PSYCHIC, 0x0e
+.equ TYPE_ICE, 0x0f
+.equ TYPE_DRAGON, 0x10
+.equ TYPE_DARK, 0x11
+
+
+@@item
+.equ ITEM_NONE, 0x000
+.equ ITEM_MASTER_BALL, 0x001
+.equ ITEM_ULTRA_BALL, 0x002
+.equ ITEM_GREAT_BALL, 0x003
+.equ ITEM_POKE_BALL, 0x004
+.equ ITEM_SAFARI_BALL, 0x005
+.equ ITEM_NET_BALL, 0x006
+.equ ITEM_DIVE_BALL, 0x007
+.equ ITEM_NEST_BALL, 0x008
+.equ ITEM_REPEAT_BALL, 0x009
+.equ ITEM_TIMER_BALL, 0x00a
+.equ ITEM_LUXURY_BALL, 0x00b
+.equ ITEM_PREMIER_BALL, 0x00c
+.equ ITEM_POTION, 0x00d
+.equ ITEM_ANTIDOTE, 0x00e
+.equ ITEM_BURN_HEAL, 0x00f
+.equ ITEM_ICE_HEAL, 0x010
+.equ ITEM_AWAKENING, 0x011
+.equ ITEM_PARALYZE_HEAL, 0x012
+.equ ITEM_FULL_RESTORE, 0x013
+.equ ITEM_MAX_POTION, 0x014
+.equ ITEM_HYPER_POTION, 0x015
+.equ ITEM_SUPER_POTION, 0x016
+.equ ITEM_FULL_HEAL, 0x017
+.equ ITEM_REVIVE, 0x018
+.equ ITEM_MAX_REVIVE, 0x019
+.equ ITEM_FRESH_WATER, 0x01a
+.equ ITEM_SODA_POP, 0x01b
+.equ ITEM_LEMONADE, 0x01c
+.equ ITEM_MOOMOO_MILK, 0x01d
+.equ ITEM_ENERGY_POWDER, 0x01e
+.equ ITEM_ENERGY_ROOT, 0x01f
+.equ ITEM_HEAL_POWDER, 0x020
+.equ ITEM_REVIVAL_HERB, 0x021
+.equ ITEM_ETHER, 0x022
+.equ ITEM_MAX_ETHER, 0x023
+.equ ITEM_ELIXIR, 0x024
+.equ ITEM_MAX_ELIXIR, 0x025
+.equ ITEM_LAVA_COOKIE, 0x026
+.equ ITEM_BLUE_FLUTE, 0x027
+.equ ITEM_YELLOW_FLUTE, 0x028
+.equ ITEM_RED_FLUTE, 0x029
+.equ ITEM_BLACK_FLUTE, 0x02a
+.equ ITEM_WHITE_FLUTE, 0x02b
+.equ ITEM_BERRY_JUICE, 0x02c
+.equ ITEM_SACRED_ASH, 0x02d
+.equ ITEM_SHOAL_SALT, 0x02e
+.equ ITEM_SHOAL_SHELL, 0x02f
+.equ ITEM_RED_SHARD, 0x030
+.equ ITEM_BLUE_SHARD, 0x031
+.equ ITEM_YELLOW_SHARD, 0x032
+.equ ITEM_GREEN_SHARD, 0x033
+.equ ITEM_HP_UP, 0x03f
+.equ ITEM_PROTEIN, 0x040
+.equ ITEM_IRON, 0x041
+.equ ITEM_CARBOS, 0x042
+.equ ITEM_CALCIUM, 0x043
+.equ ITEM_RARE_CANDY, 0x044
+.equ ITEM_PP_UP, 0x045
+.equ ITEM_ZINC, 0x046
+.equ ITEM_PP_MAX, 0x047
+.equ ITEM_GUARD_SPEC, 0x049
+.equ ITEM_DIRE_HIT, 0x04a
+.equ ITEM_X_ATTACK, 0x04b
+.equ ITEM_X_DEFEND, 0x04c
+.equ ITEM_X_SPEED, 0x04d
+.equ ITEM_X_ACCURACY, 0x04e
+.equ ITEM_X_SPECIAL, 0x04f
+.equ ITEM_POKE_DOLL, 0x050
+.equ ITEM_FLUFFY_TAIL, 0x051
+.equ ITEM_SUPER_REPEL, 0x053
+.equ ITEM_MAX_REPEL, 0x054
+.equ ITEM_ESCAPE_ROPE, 0x055
+.equ ITEM_REPEL, 0x056
+.equ ITEM_SUN_STONE, 0x05d
+.equ ITEM_MOON_STONE, 0x05e
+.equ ITEM_FIRE_STONE, 0x05f
+.equ ITEM_THUNDER_STONE, 0x060
+.equ ITEM_WATER_STONE, 0x061
+.equ ITEM_LEAF_STONE, 0x062
+.equ ITEM_TINY_MUSHROOM, 0x067
+.equ ITEM_BIG_MUSHROOM, 0x068
+.equ ITEM_PEARL, 0x06a
+.equ ITEM_BIG_PEARL, 0x06b
+.equ ITEM_STARDUST, 0x06c
+.equ ITEM_STAR_PIECE, 0x06d
+.equ ITEM_NUGGET, 0x06e
+.equ ITEM_HEART_SCALE, 0x06f
+.equ ITEM_ORANGE_MAIL, 0x079
+.equ ITEM_HARBOR_MAIL, 0x07a
+.equ ITEM_GLITTER_MAIL, 0x07b
+.equ ITEM_MECH_MAIL, 0x07c
+.equ ITEM_WOOD_MAIL, 0x07d
+.equ ITEM_WAVE_MAIL, 0x07e
+.equ ITEM_BEAD_MAIL, 0x07f
+.equ ITEM_SHADOW_MAIL, 0x080
+.equ ITEM_TROPIC_MAIL, 0x081
+.equ ITEM_DREAM_MAIL, 0x082
+.equ ITEM_FAB_MAIL, 0x083
+.equ ITEM_RETRO_MAIL, 0x084
+.equ ITEM_CHERI_BERRY, 0x085
+.equ ITEM_CHESTO_BERRY, 0x086
+.equ ITEM_PECHA_BERRY, 0x087
+.equ ITEM_RAWST_BERRY, 0x088
+.equ ITEM_ASPEAR_BERRY, 0x089
+.equ ITEM_LEPPA_BERRY, 0x08a
+.equ ITEM_ORAN_BERRY, 0x08b
+.equ ITEM_PERSIM_BERRY, 0x08c
+.equ ITEM_LUM_BERRY, 0x08d
+.equ ITEM_SITRUS_BERRY, 0x08e
+.equ ITEM_FIGY_BERRY, 0x08f
+.equ ITEM_WIKI_BERRY, 0x090
+.equ ITEM_MAGO_BERRY, 0x091
+.equ ITEM_AGUAV_BERRY, 0x092
+.equ ITEM_IAPAPA_BERRY, 0x093
+.equ ITEM_RAZZ_BERRY, 0x094
+.equ ITEM_BLUK_BERRY, 0x095
+.equ ITEM_NANAB_BERRY, 0x096
+.equ ITEM_WEPEAR_BERRY, 0x097
+.equ ITEM_PINAP_BERRY, 0x098
+.equ ITEM_POMEG_BERRY, 0x099
+.equ ITEM_KELPSY_BERRY, 0x09a
+.equ ITEM_QUALOT_BERRY, 0x09b
+.equ ITEM_HONDEW_BERRY, 0x09c
+.equ ITEM_GREPA_BERRY, 0x09d
+.equ ITEM_TAMATO_BERRY, 0x09e
+.equ ITEM_CORNN_BERRY, 0x09f
+.equ ITEM_MAGOST_BERRY, 0x0a0
+.equ ITEM_RABUTA_BERRY, 0x0a1
+.equ ITEM_NOMEL_BERRY, 0x0a2
+.equ ITEM_SPELON_BERRY, 0x0a3
+.equ ITEM_PAMTRE_BERRY, 0x0a4
+.equ ITEM_WATMEL_BERRY, 0x0a5
+.equ ITEM_DURIN_BERRY, 0x0a6
+.equ ITEM_BELUE_BERRY, 0x0a7
+.equ ITEM_LIECHI_BERRY, 0x0a8
+.equ ITEM_GANLON_BERRY, 0x0a9
+.equ ITEM_SALAC_BERRY, 0x0aa
+.equ ITEM_PETAYA_BERRY, 0x0ab
+.equ ITEM_APICOT_BERRY, 0x0ac
+.equ ITEM_LANSAT_BERRY, 0x0ad
+.equ ITEM_STARF_BERRY, 0x0ae
+.equ ITEM_ENIGMA_BERRY, 0x0af
+.equ ITEM_BRIGHT_POWDER, 0x0b3
+.equ ITEM_WHITE_HERB, 0x0b4
+.equ ITEM_MACHO_BRACE, 0x0b5
+.equ ITEM_EXP_SHARE, 0x0b6
+.equ ITEM_QUICK_CLAW, 0x0b7
+.equ ITEM_SOOTHE_BELL, 0x0b8
+.equ ITEM_MENTAL_HERB, 0x0b9
+.equ ITEM_CHOICE_BAND, 0x0ba
+.equ ITEM_KINGS_ROCK, 0x0bb
+.equ ITEM_SILVER_POWDER, 0x0bc
+.equ ITEM_AMULET_COIN, 0x0bd
+.equ ITEM_CLEANSE_TAG, 0x0be
+.equ ITEM_SOUL_DEW, 0x0bf
+.equ ITEM_DEEP_SEA_TOOTH, 0x0c0
+.equ ITEM_DEEP_SEA_SCALE, 0x0c1
+.equ ITEM_SMOKE_BALL, 0x0c2
+.equ ITEM_EVERSTONE, 0x0c3
+.equ ITEM_FOCUS_BAND, 0x0c4
+.equ ITEM_LUCKY_EGG, 0x0c5
+.equ ITEM_SCOPE_LENS, 0x0c6
+.equ ITEM_METAL_COAT, 0x0c7
+.equ ITEM_LEFTOVERS, 0x0c8
+.equ ITEM_DRAGON_SCALE, 0x0c9
+.equ ITEM_LIGHT_BALL, 0x0ca
+.equ ITEM_SOFT_SAND, 0x0cb
+.equ ITEM_HARD_STONE, 0x0cc
+.equ ITEM_MIRACLE_SEED, 0x0cd
+.equ ITEM_BLACK_GLASSES, 0x0ce
+.equ ITEM_BLACK_BELT, 0x0cf
+.equ ITEM_MAGNET, 0x0d0
+.equ ITEM_MYSTIC_WATER, 0x0d1
+.equ ITEM_SHARP_BEAK, 0x0d2
+.equ ITEM_POISON_BARB, 0x0d3
+.equ ITEM_NEVER_MELT_ICE, 0x0d4
+.equ ITEM_SPELL_TAG, 0x0d5
+.equ ITEM_TWISTED_SPOON, 0x0d6
+.equ ITEM_CHARCOAL, 0x0d7
+.equ ITEM_DRAGON_FANG, 0x0d8
+.equ ITEM_SILK_SCARF, 0x0d9
+.equ ITEM_UP_GRADE, 0x0da
+.equ ITEM_SHELL_BELL, 0x0db
+.equ ITEM_SEA_INCENSE, 0x0dc
+.equ ITEM_LAX_INCENSE, 0x0dd
+.equ ITEM_LUCKY_PUNCH, 0x0de
+.equ ITEM_METAL_POWDER, 0x0df
+.equ ITEM_THICK_CLUB, 0x0e0
+.equ ITEM_STICK, 0x0e1
+.equ ITEM_RED_SCARF, 0x0fe
+.equ ITEM_BLUE_SCARF, 0x0ff
+.equ ITEM_PINK_SCARF, 0x100
+.equ ITEM_GREEN_SCARF, 0x101
+.equ ITEM_YELLOW_SCARF, 0x102
+.equ ITEM_MACH_BIKE, 0x103
+.equ ITEM_COIN_CASE, 0x104
+.equ ITEM_ITEMFINDER, 0x105
+.equ ITEM_OLD_ROD, 0x106
+.equ ITEM_GOOD_ROD, 0x107
+.equ ITEM_SUPER_ROD, 0x108
+.equ ITEM_SS_TICKET, 0x109
+.equ ITEM_CONTEST_PASS, 0x10a
+.equ ITEM_WAILMER_PAIL, 0x10c
+.equ ITEM_DEVON_GOODS, 0x10d
+.equ ITEM_SOOT_SACK, 0x10e
+.equ ITEM_BASEMENT_KEY, 0x10f
+.equ ITEM_ACRO_BIKE, 0x110
+.equ ITEM_POKEBLOCK_CASE, 0x111
+.equ ITEM_LETTER, 0x112
+.equ ITEM_EON_TICKET, 0x113
+.equ ITEM_RED_ORB, 0x114
+.equ ITEM_BLUE_ORB, 0x115
+.equ ITEM_SCANNER, 0x116
+.equ ITEM_GO_GOGGLES, 0x117
+.equ ITEM_METEORITE, 0x118
+.equ ITEM_ROOM_1_KEY, 0x119
+.equ ITEM_ROOM_2_KEY, 0x11a
+.equ ITEM_ROOM_4_KEY, 0x11b
+.equ ITEM_ROOM_6_KEY, 0x11c
+.equ ITEM_STORAGE_KEY, 0x11d
+.equ ITEM_ROOT_FOSSIL, 0x11e
+.equ ITEM_CLAW_FOSSIL, 0x11f
+.equ ITEM_DEVON_SCOPE, 0x120
+.equ ITEM_TM01, 0x121
+.equ ITEM_TM02, 0x122
+.equ ITEM_TM03, 0x123
+.equ ITEM_TM04, 0x124
+.equ ITEM_TM05, 0x125
+.equ ITEM_TM06, 0x126
+.equ ITEM_TM07, 0x127
+.equ ITEM_TM08, 0x128
+.equ ITEM_TM09, 0x129
+.equ ITEM_TM10, 0x12a
+.equ ITEM_TM11, 0x12b
+.equ ITEM_TM12, 0x12c
+.equ ITEM_TM13, 0x12d
+.equ ITEM_TM14, 0x12e
+.equ ITEM_TM15, 0x12f
+.equ ITEM_TM16, 0x130
+.equ ITEM_TM17, 0x131
+.equ ITEM_TM18, 0x132
+.equ ITEM_TM19, 0x133
+.equ ITEM_TM20, 0x134
+.equ ITEM_TM21, 0x135
+.equ ITEM_TM22, 0x136
+.equ ITEM_TM23, 0x137
+.equ ITEM_TM24, 0x138
+.equ ITEM_TM25, 0x139
+.equ ITEM_TM26, 0x13a
+.equ ITEM_TM27, 0x13b
+.equ ITEM_TM28, 0x13c
+.equ ITEM_TM29, 0x13d
+.equ ITEM_TM30, 0x13e
+.equ ITEM_TM31, 0x13f
+.equ ITEM_TM32, 0x140
+.equ ITEM_TM33, 0x141
+.equ ITEM_TM34, 0x142
+.equ ITEM_TM35, 0x143
+.equ ITEM_TM36, 0x144
+.equ ITEM_TM37, 0x145
+.equ ITEM_TM38, 0x146
+.equ ITEM_TM39, 0x147
+.equ ITEM_TM40, 0x148
+.equ ITEM_TM41, 0x149
+.equ ITEM_TM42, 0x14a
+.equ ITEM_TM43, 0x14b
+.equ ITEM_TM44, 0x14c
+.equ ITEM_TM45, 0x14d
+.equ ITEM_TM46, 0x14e
+.equ ITEM_TM47, 0x14f
+.equ ITEM_TM48, 0x150
+.equ ITEM_TM49, 0x151
+.equ ITEM_TM50, 0x152
+.equ ITEM_HM01, 0x153
+.equ ITEM_HM02, 0x154
+.equ ITEM_HM03, 0x155
+.equ ITEM_HM04, 0x156
+.equ ITEM_HM05, 0x157
+.equ ITEM_HM06, 0x158
+.equ ITEM_HM07, 0x159
+.equ ITEM_HM08, 0x15a
+.equ ITEM_OAKS_PARCEL, 0x15d
+.equ ITEM_POKE_FLUTE, 0x15e
+.equ ITEM_SECRET_KEY, 0x15f
+.equ ITEM_BIKE_VOUCHER, 0x160
+.equ ITEM_GOLD_TEETH, 0x161
+.equ ITEM_OLD_AMBER, 0x162
+.equ ITEM_CARD_KEY, 0x163
+.equ ITEM_LIFT_KEY, 0x164
+.equ ITEM_HELIX_FOSSIL, 0x165
+.equ ITEM_DOME_FOSSIL, 0x166
+.equ ITEM_SILPH_SCOPE, 0x167
+.equ ITEM_BICYCLE, 0x168
+.equ ITEM_TOWN_MAP, 0x169
+.equ ITEM_VS_SEEKER, 0x16a
+.equ ITEM_FAME_CHECKER, 0x16b
+.equ ITEM_TM_CASE, 0x16c
+.equ ITEM_BERRY_POUCH, 0x16d
+.equ ITEM_TEACHY_TV, 0x16e
+.equ ITEM_TRI_PASS, 0x16f
+.equ ITEM_RAINBOW_PASS, 0x170
+.equ ITEM_TEA, 0x171
+.equ ITEM_MYSTIC_TICKET, 0x172
+.equ ITEM_AURORA_TICKET, 0x173
+.equ ITEM_POWDER_JAR, 0x174
+.equ ITEM_RUBY, 0x175
+.equ ITEM_SAPPHIRE, 0x176
+.equ ITEM_MAGMA_EMBLEM, 0x177
+.equ ITEM_OLD_SEA_MAP, 0x178
+
+@@some macro ripped from YamaArashi disassembly of Pokémon Emerald
+.macro base_stats hp, attack, defense, speed, sp_attack, sp_defense
+.byte \hp
+.byte \attack
+.byte \defense
+.byte \speed
+.byte \sp_attack
+.byte \sp_defense
+.endm
+
+.macro ev_yield hp, attack, defense, speed, sp_attack, sp_defense
+.2byte (\sp_defense << 10) | (\sp_attack << 8) | (\speed << 6) | (\defense << 4) | (\attack << 2) | \hp
+.endm
+
+.macro level_up_move level, move
+.2byte (\level << 9) | \move
+.endm
+
+.macro evo_entry method, parameter, target_species
+.2byte \method
+.2byte \parameter
+.2byte \target_species
+.2byte 0 @ padding
+.endm
+
+.macro empty_evo_entries count
+.fill 8 * \count, 1, 0
+.endm
+
+.macro cry1 cry_offset1
+.byte 0x20, 0x3C
+.2byte 0
+.word \cry_offset1
+.byte 0xFF, 0x00, 0xFF, 0x00
+.endm
+
+.macro cry2 cry_offset2
+.byte 0x30, 0x3C
+.2byte 0
+.word \cry_offset2
+.byte 0xFF, 0x00, 0xFF, 0x00
+.endm
+
+.macro pokedex_entry height, width, text_pointer, pokemon_scale, pokemon_offset, trainer_scale, trainer_offset
+.2byte \height @ in decimeters
+.2byte \width @ in hectograms
+.4byte \text_pointer
+.2byte 0 @ unused
+.2byte \pokemon_scale
+.2byte \pokemon_offset
+.2byte \trainer_scale
+.2byte \trainer_offset
+.2byte 0 @ padding
+.endm
